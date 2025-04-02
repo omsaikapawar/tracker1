@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIFTY 50 ATH Stocks</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>NIFTY IT All-Time High Stocks</h1>
+    <label for="monthInput">Select Month & Year (YYYY-MM):</label>
+    <input type="month" id="monthInput" value="2024-01">
+    <button id="searchButton" onclick="fetchStocks('niftyit')">Search ATH Stocks</button>
+    
+    <p id="loading" style="display: none;">
+      <img id="loadingGif" src="{{ url_for('static', filename='homer_loading.gif') }}" alt="Loading..." width="50">
+    </p>
+
+    <table id="stocksTable">
+      <tr>
+        <th>Symbol</th>
+        <th>LTP</th>
+        <th>All Time High</th>
+        <th>All Time Low</th>
+        <th>ATH Date</th>
+      </tr>
+    </table>
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer">
+    ©️ KAPAWAR GROUPS OF COMPANIES
+  </div>
+</body>
+</html>

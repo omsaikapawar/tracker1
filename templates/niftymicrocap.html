@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NIFTY 50 ATH Stocks</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>NIFTY MICROCAP All-Time High Stocks</h1>
+    <label for="monthInput">Select Month & Year (YYYY-MM):</label>
+    <input type="month" id="monthInput" value="2024-01">
+    <button id="searchButton" onclick="fetchStocks('niftymicrocap250')">Search ATH Stocks</button>
+    <p id="loading" style="display: none;">🔄 Loading...</p>
+    <table id="stocksTable">
+      <tr>
+        <th>Symbol</th>
+        <th>LTP</th>
+        <th>All Time High</th>
+        <th>All Time Low</th>
+        <th>ATH Date</th>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Market Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="web-loading">
+        <p>Loading Stock Data...</p>
+        <div id="loading-bar">
+            <div id="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>Stock Market Dashboard</header>
+
+    <!-- Line Below Header -->
+    <div class="header-line"></div>
+
+    <!-- Animated ATH Stocks -->
+    <div id="ath-stocks"></div>
+
+    <!-- New Text Between ATH Stocks & Buttons -->
+    <p class="ath-info-text" style="font-size: 20px;">Check ALL Time High By Clicking Specific</p>
+
+
+    <!-- Buttons -->
+    <div class="button-group">
+        <button onclick="window.location.href='/nifty50'">📊 NIFTY 50</button>
+        <button onclick="window.location.href='/nifty500'">📊 NIFTY 500</button>
+        <button onclick="window.location.href='/niftybank'">📊 NIFTY Bank </button>
+        <button onclick="window.location.href='/niftyit'">📊 NIFTY IT</button>
+        <button onclick="window.location.href='/niftynext50'">📊 NIFTY Next 50 </button>
+        <button onclick="window.location.href='/niftymid'">📊 NIFTY MIDCAP 250 </button>
+        <button onclick="window.location.href='/niftymicrocap'">📊 NIFTY MICROCAP 250 </button>
+    </div>
+
+    <!-- Top Gainers & Losers -->
+    <div class="top-stocks-container">
+        <div class="top-stocks">
+            <h2>📈 Top Gainers</h2>
+            <div id="top-gainers"></div>
+        </div>
+        <div class="top-stocks">
+            <h2>📉 Top Losers</h2>
+            <div id="top-losers"></div>
+        </div>
+    </div>
+
+    <!-- Sector-Wise Distribution Chart -->
+    <div id="sector-chart"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+        ©️KAPAWAR GROUPS OF COMPANES
+    </div>
+
+</body>
+</html>

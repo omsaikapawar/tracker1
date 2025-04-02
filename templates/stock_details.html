@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ stock.symbol }} Stock Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    /* Same Header as Home Page */
+    header {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px 0;
+      background: #002244;
+      color: white;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Stock Details Section */
+    .details-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Stock Graph */
+    .graph-container {
+      width: 700px;
+      height: 400px;
+      min-width: 300px;
+      margin-right: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      text-align: center;
+    }
+
+    /* Stock Info Table */
+    .info-container {
+      flex: 1;
+      min-width: 280px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: left;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table th, .info-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      background-color: #226F54;
+      color: white;
+      text-align: left;
+      width: 150px;
+    }
+
+    /* Back Button */
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      border: none;
+      background: linear-gradient(135deg, #226F54, #87C38F);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .back-button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Same Header as Homepage -->
+  <header>Stock Market Dashboard</header>
+
+  <div class="container">
+    <h1>{{ stock.symbol }} Stock Details</h1>
+
+    <div class="details-container">
+      <!-- Normal Graph -->
+      <div class="graph-container">
+        <h3>{{ stock.symbol }} Price Chart</h3>
+        <img src="{{ url_for('stock_chart', symbol=stock.symbol) }}" alt="Stock Chart">
+      </div>
+
+      <!-- Stock Info Table -->
+      <div class="info-container">
+        <table class="info-table">
+          <tr><th>LTP</th><td>₹{{ stock.ltp }}</td></tr>
+          <tr><th>All Time High</th><td>₹{{ stock.all_time_high }}</td></tr>
+          <tr><th>All Time Low</th><td>₹{{ stock.all_time_low }}</td></tr>
+          <tr><th>ATH Date</th><td>{{ stock.high_date }}</td></tr>
+          <tr><th>Prev Close</th><td>₹{{ prev_close }}</td></tr>
+          <tr><th>Open</th><td>₹{{ open_price }}</td></tr>
+          <tr>
+            <th>Mkt Cap (in CR)</th>
+            <td style="color: #FF5733;">{{ market_cap }}</td>
+          </tr>
+          <tr><th>P/E Ratio</th><td>{{ pe_ratio }}</td></tr>
+          <tr><th>Div Yield</th><td>{{ div_yield }}</td></tr>
+          <tr><th>52-Wk High</th><td>₹{{ wk52_high }}</td></tr>
+          <tr><th>52-Wk Low</th><td>₹{{ wk52_low }}</td></tr>
+        </table>
+
+        <button class="back-button" onclick="window.history.back()">Go Back</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
